@@ -148,6 +148,7 @@ Ta projekt je bil razvit za izobraževalne namene v okviru študija na FE UL.
 ---
 
 ## 👨‍💻 Avtor
-
+Blaž Cussigh
+Jaka Čemažar
 Razvito na **Univerzi v Ljubljani, Fakulteti za elektrotehniko**  
 Predmet: Telekomunikacijska omrežja in upravljanje računalnikov (TNUV)
