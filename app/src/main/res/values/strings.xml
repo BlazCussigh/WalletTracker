@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wallet Tracker</string>
+    <string name="skupaj_eur">Skupaj v EUR</string>
+    <string name="dodaj_vnos">Dodaj vnos</string>
+    <string name="shrani">Shrani</string>
+    <string name="preklic">Prekliči</string>
+    <string name="valuta">Valuta</string>
+    <string name="znesek">Znesek</string>
+    <string name="opomba">Opomba (neobvezno)</string>
+    <string name="graf_zgodovine">Graf zgodovine</string>
+    <string name="ni_podatkov">Ni podatkov za prikaz</string>
+    <string name="pridobivam_tecaj">Pridobivam tečaj iz spleta...</string>
+    <string name="napaka_omrezja">Napaka: ni omrežja. Preveri povezavo.</string>
+    <string name="izbrisi_vnos">Izbriši vnos</string>
+    <string name="trend">Trend</string>
+    <string name="shranjeno_format">Shranjeno: %.2f %s = %.2f EUR</string>
+    <string name="vnesi_znesek">Prosim vnesi znesek</string>
+    <string name="neveljavna_vrednost">Neveljavna vrednost</string>
+    <string name="znesek_pozitiven">Znesek mora biti večji od 0</string>
+    <string name="uredi_vnos">Uredi vnos</string>
+    <string name="delnice">Delnice</string>
+    <string name="dodaj_delnico">Dodaj delnico</string>
+    <string name="ticker_simbol">Ticker (npr. NVDA, AAPL, TSLA)</string>
+    <string name="stevilo_delnic">Število delnic</string>
+    <string name="pridobivam_ceno">Pridobivam ceno delnice...</string>
+    <string name="ticker_prazen">Vnesi ticker simbol</string>
+    <string name="delnice_pozitivno">Število delnic mora biti večje od 0</string>
+    <string name="delnica_shranjena">Delnica shranjena: %s × %s = %.2f EUR</string>
+    <string name="posodabljam_delnice">Posodabljam cene delnic...</string>
+    <string name="delnica_posodobljena">Cene delnic posodobljene</string>
+    <string name="moje_delnice">MOJE DELNICE</string>
+    <string name="portfelj_delnic">PORTFELJ DELNIC</string>
+</resources>

@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#07080F">
+
+    <!-- ===== HOME ===== -->
+    <LinearLayout
+        android:id="@+id/sectionHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wallet Tracker"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="#0D0E1F"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SKUPNA VREDNOST"
+                    android:textColor="#A5B4FC"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvTotalEur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0,00 EUR"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💵 DENARNICA"
+                            android:textColor="#818CF8"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tvWalletSubtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0,00 EUR"
+                            android:textColor="#A5B4FC"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📈 DELNICE"
+                            android:textColor="#34D399"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tvStocksSubtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0,00 EUR"
+                            android:textColor="#34D399"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#1A1C35"
+                    android:layout_marginBottom="16dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/tvRefreshCounter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Posodabljam..."
+                        android:textColor="#818CF8"
+                        android:textSize="12sp" />
+                    <Button
+                        android:id="@+id/btnRefreshNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:backgroundTint="#1A1C35"
+                        android:text="↻ Posodobi"
+                        android:textColor="#818CF8"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="MOJE DENARNICE"
+                    android:textColor="#A5B4FC"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEntries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"
+                    android:paddingBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="MOJE DELNICE"
+                    android:textColor="#34D399"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewStocks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- ===== DODAJ ===== -->
+    <ScrollView
+        android:id="@+id/sectionDodaj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp">
+                <Button
+                    android:id="@+id/btnDodajNazaj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:backgroundTint="#1A1C35"
+                    android:text="← Nazaj"
+                    android:textColor="#A5B4FC"
+                    android:textSize="13sp"
+                    android:layout_marginEnd="12dp"
+                    app:cornerRadius="12dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Dodaj valuto"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#0D0E1F"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VALUTA" android:textColor="#A5B4FC" android:textSize="11sp" android:letterSpacing="0.12" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                    <Spinner android:id="@+id/spinnerValuta" android:layout_width="match_parent" android:layout_height="52dp" android:background="@drawable/spinner_background" android:paddingStart="16dp" android:popupBackground="#1C1C3A" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="20dp" android:background="#1A1C35" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ZNESEK" android:textColor="#A5B4FC" android:textSize="11sp" android:letterSpacing="0.12" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                    <EditText android:id="@+id/etZnesek" android:layout_width="match_parent" android:layout_height="56dp" android:background="@drawable/edittext_background" android:hint="npr. 500" android:inputType="numberDecimal" android:paddingStart="16dp" android:textColor="#FFFFFF" android:textColorHint="#6B6D9A" android:textSize="20sp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="20dp" android:background="#1A1C35" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OPOMBA (neobvezno)" android:textColor="#A5B4FC" android:textSize="11sp" android:letterSpacing="0.12" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                    <EditText android:id="@+id/etOpomba" android:layout_width="match_parent" android:layout_height="56dp" android:background="@drawable/edittext_background" android:hint="npr. Potovanje, varčevanje..." android:inputType="text" android:paddingStart="16dp" android:textColor="#FFFFFF" android:textColorHint="#6B6D9A" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView android:id="@+id/tvStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:textColor="#818CF8" android:textSize="14sp" android:visibility="gone" />
+            <Button android:id="@+id/btnShrani" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="20dp" android:backgroundTint="#6366F1" android:text="SHRANI" android:textColor="#FFFFFF" android:textSize="15sp" android:fontFamily="sans-serif-medium" android:textStyle="bold" app:cornerRadius="18dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ===== DELNICE ===== -->
+    <LinearLayout
+        android:id="@+id/sectionDelnice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="12dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📈 Delnice"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnRefreshStocks"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:backgroundTint="#0D2E22"
+                android:text="↻ Posodobi"
+                android:textColor="#34D399"
+                android:textSize="12sp"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="#0D0E1F"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DODAJ DELNICO"
+                    android:textColor="#34D399"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etTicker"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/edittext_background"
+                        android:hint="NVDA"
+                        android:inputType="textCapCharacters"
+                        android:paddingStart="16dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#6B6D9A"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etShares"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_background"
+                        android:hint="50"
+                        android:inputType="numberDecimal"
+                        android:paddingStart="16dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#6B6D9A"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Ticker simbol (npr. NVDA)"
+                        android:textColor="#3A3A60"
+                        android:textSize="11sp" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Število delnic"
+                        android:textColor="#3A3A60"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvStockStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="#818CF8"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnDodajDelnico"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#34D399"
+                    android:text="DODAJ DELNICO"
+                    android:textColor="#07080F"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="#0D2E22"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📊 SKUPAJ PORTFELJ"
+                    android:textColor="#34D399"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvPortfolioTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0,00 EUR"
+                    android:textColor="#34D399"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="6dp"
+            android:text="MOJE DELNICE"
+            android:textColor="#34D399"
+            android:textSize="11sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewStocksMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+    <!-- ===== ZGODOVINA ===== -->
+    <LinearLayout
+        android:id="@+id/sectionZgodovina"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingBottom="80dp"
+        android:visibility="gone">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="20dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Graf zgodovine" android:textColor="#FFFFFF" android:textSize="24sp" android:fontFamily="sans-serif-medium" android:textStyle="bold" />
+            <Button android:id="@+id/btnToggleChart" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="#0D0E1F" android:text="📈 Črta" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" app:cornerRadius="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp">
+            <Button android:id="@+id/btn1T" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:backgroundTint="#0D0E1F" android:text="1T" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" app:cornerRadius="12dp"/>
+            <Button android:id="@+id/btn1M" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:backgroundTint="#0D0E1F" android:text="1M" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" app:cornerRadius="12dp"/>
+            <Button android:id="@+id/btn3M" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:backgroundTint="#0D0E1F" android:text="3M" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" app:cornerRadius="12dp"/>
+            <Button android:id="@+id/btnVse" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:backgroundTint="#6366F1" android:text="VSE" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" app:cornerRadius="12dp"/>
+        </LinearLayout>
+
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginBottom="8dp">
+            <com.github.mikephil.charting.charts.BarChart android:id="@+id/barChart" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="visible"/>
+            <com.github.mikephil.charting.charts.LineChart android:id="@+id/lineChart" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone"/>
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#0D0E1F" app:cardCornerRadius="18dp" app:cardElevation="0dp">
+            <TextView android:id="@+id/tvTrend" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="18dp" android:gravity="center" android:text="Trend: -" android:textColor="#818CF8" android:textSize="17sp" android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- ===== NASTAVITVE ===== -->
+    <ScrollView
+        android:id="@+id/sectionNastavitve"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Nastavitve"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#0D0E1F"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="44dp" android:layout_height="44dp" android:gravity="center" android:text="⚡" android:textSize="20sp" android:background="#141628" android:padding="10dp" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="API ZA VALUTNE TEČAJE" android:textColor="#A5B4FC" android:textSize="11sp" android:letterSpacing="0.12" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Frankfurter.app" android:textColor="#FFFFFF" android:textSize="17sp" android:fontFamily="sans-serif-medium" android:textStyle="bold" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1A1C35" android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Brezplačen" android:textColor="#34D399" android:textSize="12sp" android:textStyle="bold" android:background="#0D2E22" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:layout_marginEnd="8dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Brez API ključa" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" android:background="#141628" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:layout_marginEnd="8dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ECB podatki" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" android:background="#141628" android:paddingHorizontal="10dp" android:paddingVertical="4dp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1A1C35" android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="44dp" android:layout_height="44dp" android:gravity="center" android:text="📈" android:textSize="20sp" android:background="#0D2E22" android:padding="10dp" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="API ZA DELNICE" android:textColor="#34D399" android:textSize="11sp" android:letterSpacing="0.12" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yahoo Finance" android:textColor="#FFFFFF" android:textSize="17sp" android:fontFamily="sans-serif-medium" android:textStyle="bold" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Brezplačen" android:textColor="#34D399" android:textSize="12sp" android:textStyle="bold" android:background="#0D2E22" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:layout_marginEnd="8dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Brez API ključa" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" android:background="#141628" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:layout_marginEnd="8dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Realnočasovno" android:textColor="#818CF8" android:textSize="12sp" android:textStyle="bold" android:background="#141628" android:paddingHorizontal="10dp" android:paddingVertical="4dp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1A1C35" android:layout_marginBottom="12dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cene delnic in tečaji se samodejno posodobijo ob vsakem zagonu aplikacije."
+                        android:textColor="#A5B4FC"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="3dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#0D0E1F"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <TextView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:gravity="center"
+                            android:text="💱"
+                            android:textSize="20sp"
+                            android:background="#141628"
+                            android:padding="10dp" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PRIKAZNA VALUTA"
+                                android:textColor="#A5B4FC"
+                                android:textSize="11sp"
+                                android:letterSpacing="0.12"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Valuta za prikaz skupne vrednosti"
+                                android:textColor="#6B6D9A"
+                                android:textSize="13sp"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#1A1C35"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IZBERI VALUTO"
+                        android:textColor="#A5B4FC"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.12"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerDisplayCurrency"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/spinner_background"
+                        android:paddingStart="16dp"
+                        android:popupBackground="#1C1C3A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Skupna vrednost bo prikazana v izbrani valuti"
+                        android:textColor="#6B6D9A"
+                        android:textSize="12sp"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- FAB overlay background -->
+    <View
+        android:id="@+id/fabOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- FAB expanded: Delnica label + button -->
+    <LinearLayout
+        android:id="@+id/fabDelnicaRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="168dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delnica"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#22FFFFFF"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:layout_marginEnd="12dp"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDelnica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#34D399"
+            android:src="@drawable/ic_fab_delnica"
+            app:tint="#07080F"
+            app:fabSize="mini"
+            app:elevation="6dp" />
+    </LinearLayout>
+
+    <!-- FAB expanded: Valuta label + button -->
+    <LinearLayout
+        android:id="@+id/fabValutaRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="228dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valuta"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#22FFFFFF"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:layout_marginEnd="12dp"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabValuta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#818CF8"
+            android:src="@drawable/ic_fab_valuta"
+            app:tint="#FFFFFF"
+            app:fabSize="mini"
+            app:elevation="6dp" />
+    </LinearLayout>
+
+    <!-- Main FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDodaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="96dp"
+        android:backgroundTint="#6366F1"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="#FFFFFF"
+        app:elevation="8dp"
+        app:fabSize="normal" />
+
+    <!-- BOTTOM NAV -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#0A0B1A"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:elevation="16dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

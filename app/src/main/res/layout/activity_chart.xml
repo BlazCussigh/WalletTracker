@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D1A">
+
+    <!-- TOP BAR with back button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:background="#12122A">
+
+        <ImageButton
+            android:id="@+id/btnNazaj"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="#8ECAE6"
+            android:contentDescription="Nazaj" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="Graf zgodovine"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- DIVIDER -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1E1E3F" />
+
+    <!-- FILTER BUTTONS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn1T"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="#1C1C3A"
+            android:text="1T"
+            android:textColor="#8ECAE6"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"/>
+
+        <Button
+            android:id="@+id/btn1M"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="#1C1C3A"
+            android:text="1M"
+            android:textColor="#8ECAE6"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"/>
+
+        <Button
+            android:id="@+id/btn3M"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="#1C1C3A"
+            android:text="3M"
+            android:textColor="#8ECAE6"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"/>
+
+        <Button
+            android:id="@+id/btnVse"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:backgroundTint="#E94560"
+            android:text="VSE"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"/>
+
+    </LinearLayout>
+
+    <!-- CHART -->
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- TREND CARD -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#1C1C3A"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <TextView
+            android:id="@+id/tvTrend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:gravity="center"
+            android:text="Trend: -"
+            android:textColor="#8ECAE6"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
